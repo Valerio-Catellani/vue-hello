@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="resources/css/style.css">
   <link rel="stylesheet" href="resources/css/animation.css">
   <link rel="stylesheet" href="resources/css/media-query.css">
+  <link rel="stylesheet" href="resources/css/utility.css">
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="resources/js/script.js" defer></script>
   <title>Document</title>
@@ -25,12 +26,36 @@
       class="container d-flex flex-column align-items-center border border-3 border-warning-subtle rounded-5 my-5 p-5"
       :class="background.show ? 'bg-warning-subtle' : 'bg-dark-subtle'">
       <div v-html="message.text"></div>
-      <button class="btn btn-lg btn-warning my-4"
+      <button class="btn btn-lg btn-warning my-4 shadow border border-black "
         @click="showElement([img, background, button])">{{button.show?'Generate Image':'Hide Image'}}</button>
       <img class="img-fluid " v-if="img.show" :src="img.url" :alt="img.alt">
     </div>
-
   </div>
+
+  <div id="app2">
+
+    <div
+      class="container d-flex flex-column align-items-center border border-3 border-warning-subtle rounded-5 my-5 p-5 bg-light-subtle">
+      <h1 class="display-1 hype-text-border-black fw-bold text-primary">{{title}}</h1>
+      <p>{{subtTitle}}</p>
+      <div class=" container d-flex justify-content-center">
+        <input v-for="index in 5" :key="index" :id="'input-'+index" type="number"
+          class="number m-3  rounded-circle border-1 border border-black shadow d-flex justify-content-center align-items-center display-1 fw-bold text-white hype-text-border-black text-center"
+          :class="changeColor(index-1)" :disabled="isInputDisabled" style="width: 200px;"
+          v-model.number="randomNumbersTmp[index-1]">
+      </div>
+      <div class="d-flex">
+        <button type="button" class="btn btn-lg btn-warning my-4 shadow border border-black mx-5" @click="createNumbers"
+          :disabled="isButtonDisabled"
+          :class="gameIsRunning?'btn-danger':'btn-warning'">{{gameIsRunning?'Restart':'Start Game'}}</button>
+        <button type="button" class="btn btn-lg btn-success  my-4 shadow border border-black mx-5"
+          @click="confrontResults" v-if="gameIsRunning && !isInputDisabled" :disabled="isButtonDisabled">Send
+          Results</button>
+      </div>
+
+    </div>
+  </div>
+
 
 </body>
 
