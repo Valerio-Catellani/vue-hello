@@ -35,12 +35,12 @@
   <div id="app2">
 
     <div
-      class="container d-flex flex-column align-items-center border border-3 border-warning-subtle rounded-5 my-5 p-5 bg-light-subtle">
+      class="container d-flex flex-column align-items-center border border-3 border-warning-subtle rounded-5 my-5 p-5 bg-dark-subtle">
       <h1 class="display-1 hype-text-border-black fw-bold text-primary">{{title}}</h1>
       <p>{{subtTitle}}</p>
       <div class=" container d-flex justify-content-center">
         <input v-for="index in 5" :key="index" :id="'input-'+index" type="number"
-          class="number m-3  rounded-circle border-1 border border-black shadow d-flex justify-content-center align-items-center display-1 fw-bold text-white hype-text-border-black text-center"
+          class="number m-3  rounded-circle border-1 border border-black shadow d-flex justify-content-center align-items-center display-1 fw-bold text-primary hype-text-border-black text-center"
           :class="changeColor(index-1)" :disabled="isInputDisabled" style="width: 200px;"
           v-model.number="randomNumbersTmp[index-1]">
       </div>

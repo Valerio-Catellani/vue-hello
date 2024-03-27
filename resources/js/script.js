@@ -54,7 +54,8 @@ const app2 = createApp({
         createNumbers() {
             this.gameIsRunning = true;
             this.checkResults = false;
-            this.randomNumbers = [];
+            this.isInputDisabled = true,
+                this.randomNumbers = [];
             this.randomNumbersTmp = [];
             this.isButtonDisabled = true;
             console.log(this);
@@ -81,7 +82,7 @@ const app2 = createApp({
             } else if (this.checkResults && this.randomNumbersTmp[index] !== this.randomNumbers[index]) {
                 return 'bg-danger'
             } else {
-                return 'bg-dark-subtle'
+                return 'bg-light'
             }
         },
         confrontResults() {
