@@ -48,6 +48,7 @@ const app2 = createApp({
             gameIsRunning: false,
             isInputDisabled: true,
             checkResults: false,
+            a: [],
         }
     },
     methods: {
@@ -82,14 +83,29 @@ const app2 = createApp({
             } else if (this.checkResults && this.randomNumbersTmp[index] !== this.randomNumbers[index]) {
                 return 'bg-danger'
             } else {
-                return 'bg-light'
+                return 'bg-primary'
             }
         },
         confrontResults() {
             this.checkResults = true;
             this.isInputDisabled = true;
+        },
+        test() {
+            let i = 0;
+            while (i <= this.a.length) {
+                i++
+                let b = Math.floor(Math.random() * 101); // Genera un numero casuale tra 0 e 100
+                if (!this.a.includes(b)) {
+                    this.a.push(b);
+                    break
+                }
+            }
+            console.log(this.a);
         }
+
 
     }
 })
 app2.mount('#app2');
+
+console.log(Vue);
